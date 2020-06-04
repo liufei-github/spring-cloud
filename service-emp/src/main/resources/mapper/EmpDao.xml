@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.EmpDao">
+    <!--resultType 本来是需要指定类的全限定名，在mynatis.xml中设置了别名则只需要直接用别名-->
+    <select id="allemp" resultType="Emp">
+        <!--自动转义特殊字符，避免可能出现的标签格式问题-->
+        <![CDATA[
+          select * from emp
+        ]]>
+    </select>
+
+    <select id="seldept" resultType="map">
+        <![CDATA[
+          select * from t_department
+        ]]>
+    </select>
+    <insert id="addEmp">
+        insert into emp values(null,#{eName},#{pwd},#{age},#{face},#{did})
+    </insert>
+
+    <select id="selempbyid" resultType="Emp">
+        <!--自动转义特殊字符，避免可能出现的标签格式问题-->
+        <![CDATA[
+          select * from emp where id=#{id}
+        ]]>
+    </select>
+    <update id="updemp">
+        update emp set e_name=#{eName},pwd=#{pwd},age=#{age},face=#{face},did=#{did} where id=#{id}
+    </update>
+
+    <delete id="delemp">
+        delete from emp where id=#{id}
+    </delete>
+
+    <select id="login" resultType="Emp">
+        <!--自动转义特殊字符，避免可能出现的标签格式问题-->
+        <![CDATA[
+          select * from emp where e_name=#{eName} and pwd=#{pwd}
+        ]]>
+    </select>
+</mapper>

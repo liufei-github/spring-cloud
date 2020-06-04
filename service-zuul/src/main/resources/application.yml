@@ -1,0 +1,51 @@
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+server:
+  port: 8769
+spring:
+  application:
+    name: service-zuul
+##使用服务ID配置
+#zuul:
+#  routes:
+#    first:
+#      path: /api-r/**
+#      serviceId: service-ribbon
+#    second:
+#      path: /api-f/**
+#      serviceId: service-feign
+#  ignored-patterns: /**/hello/**
+#配置忽略表达式
+
+
+#服务端的负载均衡
+#    sixth:
+#      path: /api-e/**
+#      serviceId: service-feign
+#ribbon:
+#  eureka:
+#    enabled: false
+#
+#service-feign:
+#   ribbon:
+#      listOfServers: http://localhost:7002/,http://localhost:7003/
+
+
+
+
+
+
+
+#使用URL配置
+#zuul:
+#  routes:
+#    first:
+#      path: /api-r/**
+#      url: http://localhost:7001/
+#    second:
+#      path: /api-f/**
+#      url: http://localhost:7002/
+
+

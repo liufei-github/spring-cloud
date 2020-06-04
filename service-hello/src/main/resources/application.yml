@@ -1,0 +1,13 @@
+#服务提供者的配置
+#客户端端口
+server:
+  port: 8005
+spring:
+  application:
+    name: service-hello
+eureka:
+  client:
+     service-url:
+      default-zone: http://localhost:8761/eureka/
+
+#作为模型层
